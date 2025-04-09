@@ -14,7 +14,8 @@ import os
 
 SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key")
 DEBUG = os.environ.get("DEBUG", "True") == "True"
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",") or ["*"]
+ALLOWED_HOSTS = ['web-production-88202.up.railway.app', 'your-domain.com', 'localhost']
+
 
 # 数据库配置（可选）
 DATABASES = {
