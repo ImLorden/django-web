@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-import dj_database_url
 from pathlib import Path
 import os
 
@@ -19,7 +18,14 @@ ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",") or ["*"]
 
 # 数据库配置（可选）
 DATABASES = {
-    "default": dj_database_url.config(default="sqlite:///db.sqlite3", conn_max_age=600)
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_database_name',
+        'USER': 'your_database_user',
+        'PASSWORD': 'your_database_password',
+        'HOST': 'localhost',  # or use Railway's provided database URL
+        'PORT': '5432',
+    }
 }
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
