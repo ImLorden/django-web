@@ -14,7 +14,7 @@ import os
 
 SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key")
 DEBUG = os.environ.get("DEBUG", "True") == "True"
-ALLOWED_HOSTS = ['web-production-88202.up.railway.app', 'your-domain.com', 'localhost']
+ALLOWED_HOSTS = ['web-production-88202.up.railway.app', 'localhost', '127.0.0.1']
 
 
 # 数据库配置（可选）
