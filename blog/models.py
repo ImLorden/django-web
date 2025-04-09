@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from ckeditor.fields import RichTextField # type: ignore
-import markdown
+import markdown  # type: ignore
 
 
 class Post(models.Model):
