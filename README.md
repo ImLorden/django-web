@@ -2,7 +2,6 @@
 
 
 ## 一、环境搭建
-
 ### 1. Python 虚拟环境
 #### **创建**
 ```shell
@@ -79,7 +78,6 @@ wheel             0.45.1
 
 
 ## 二、搭建框架
----
 - 在工作区（比如桌面）建立项目文件
 ```shell
 % django-admin startproject myblog
@@ -110,7 +108,6 @@ python manage.py createsuperuser
 
 
 ## 三、创建 blog 应用
----
 ```shell
 python manage.py startapp blog
 ```
