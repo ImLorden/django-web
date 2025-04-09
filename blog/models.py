@@ -1,5 +1,5 @@
 from django.db import models
-import markdown  # 用于将 Markdown 渲染为 HTML
+import markdown  # type: ignore
 from django.utils import timezone
 
 
