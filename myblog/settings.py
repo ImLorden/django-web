@@ -76,12 +76,20 @@ WSGI_APPLICATION = 'myblog.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+# Database
+# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3',
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+# Only use dj_database_url if DATABASE_URL is set in the environment
+import os
+database_url = os.environ.get('DATABASE_URL')
+if database_url:
+    DATABASES['default'] = dj_database_url.parse(database_url, conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -142,3 +150,8 @@ CKEDITOR_CONFIGS = {
         'extraPlugins': ','.join(['uploadimage', 'image2']),  # Enable image upload plugins
     },
 }
+
+import sys
+print("Python version:", sys.version)
+print("dj_database_url version:", dj_database_url.__version__)
+print("DATABASE_URL exists:", "DATABASE_URL" in os.environ)
