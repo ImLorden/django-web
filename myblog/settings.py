@@ -9,9 +9,18 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import dj_database_url
 from pathlib import Path
 import os
+
+SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key")
+DEBUG = os.environ.get("DEBUG", "True") == "True"
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",") or ["*"]
+
+# 数据库配置（可选）
+DATABASES = {
+    "default": dj_database_url.config(default="sqlite:///db.sqlite3", conn_max_age=600)
+}
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -53,7 +62,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ROOT_URLCONF = 'myblog.urls'
 
