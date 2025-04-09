@@ -10,7 +10,8 @@
         <img src="{{ post.cover.url }}" alt="封面图" class="img-fluid mb-3">
     {% endif %}
     <div class="content">
-        {{ post.content|safe }}
+        <!-- 使用 get_content_as_html 方法渲染 Markdown 为 HTML -->
+        {{ post.get_content_as_html|safe }}
     </div>
     <a href="{% url 'home' %}" class="btn btn-secondary mt-3">返回主页</a>
 </div>

@@ -58,6 +58,7 @@ INSTALLED_APPS = [
 
     'ckeditor', # CKEditor for rich text editing
     'ckeditor_uploader', # 启用上传功能
+    'markdownx',
 ]
 
 MIDDLEWARE = [
